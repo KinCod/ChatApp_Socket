@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
 
 const generateTokenAndSetCookie = (userId,res) =>{
-    const token = jwt.sign({ userId }, process.env.JWT_KEY, {
+    const token = jwt.sign({ userId }, process.env.JWT_KEY, {       //key ko sign kra using the USER_id and secret key --> Ye user id mil skti if you have the secret key
         expiresIn: '15d'
     })
 
@@ -10,6 +10,7 @@ const generateTokenAndSetCookie = (userId,res) =>{
         httpOnly: true,      //prevent XSS attacks ( this cookie will not be accessible via JS)
         sameSite: "strict", //CSRF attacks cross -site reqeust forgery attacks
     });
+    console.log(token);
 };
 
 export default generateTokenAndSetCookie;
