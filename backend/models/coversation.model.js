@@ -19,6 +19,6 @@ const conversationSchema = new mongoose.Schema({
 
 //so upar Schema toh ban gyi
 //Ab model bnate
-const Conversation = mongoose.model("Conversation",ConversationSchema);
+const Conversation = mongoose.model("Conversation",conversationSchema);
 
 export default Conversation;
