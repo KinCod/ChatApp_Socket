@@ -62,7 +62,10 @@ export const getMessage = async(req,res)=>{
         //toh bas iske liye populate method with the related column to populate use hota
     
         if(!conversation) return res.status(200).json([]);
-        res.status(200).json(conversation.messages);    //now we return the whole array of messages for the particular coversation bw two users
+        
+        const messages = conversation.messages;
+        
+        res.status(200).json(messages);    //now we return the whole array of messages for the particular coversation bw two users
     }catch(error){   
         console.log("Error in getMessage Controller", error.message);
         res.status(500).json({error : "Internal Server error"});
