@@ -4,6 +4,8 @@ import cookieParser from "cookie-parser";   //middle ware to access the cookies 
 
 import authRoutes from "./routes/auth.routes.js";
 import messageRoutes from "./routes/message.routes.js";
+import userRoutes from "./routes/user.routes.js";
+
 import connectToMongoDB from "./db/connectToMongoDB.js";
 
 
@@ -20,6 +22,7 @@ app.use(cookieParser());
 //making routes for auth and that will be done using a middleware
 app.use("/api/auth", authRoutes);       //as soon as api/auth is seen we go to the authRoutes middleware
 app.use("/api/message", messageRoutes);
+app.use("/api/user", userRoutes);
 
 // app.get("/",(req,res)=>{
 //     //root route = http://localhost:5000/
